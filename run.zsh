@@ -1,7 +1,12 @@
 #!/usr/bin/zsh
 
-source ./.venv/bin/activate
-python3 autoclicker.py
+DIR=$(dirname "$0")
+# echo "$DIR" --> returns ~/.../.../Autoclicker
 
-echo -e "\b\e[3;35mPROCESS KILLED"
+#activate venv
+source $DIR/.venv/bin/activate
+python3 $DIR/autoclicker.py
+
+#on autoclicker being killed deactivate venv
+echo -e "\b\e[3;35mPROCESS FINISHED"
 deactivate
