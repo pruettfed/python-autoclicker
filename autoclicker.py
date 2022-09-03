@@ -5,15 +5,15 @@ from pynput.mouse import Button, Controller
 from pynput.keyboard import Listener, KeyCode
 
 #TODO add argument to set delay in command line
-#TODO I should probably make a bash execute script so I don't need to worry about venv/args
 
 #delay bound between 0.01 and 2, default to 0.1
 delay = 0.01#float(sys.argv[0]) if 0.01 <= float(sys.argv[0]) <= 2 else 0.1 
-print(f"Delay is {delay} seconds")
-
 button = Button.left
 start_stop_key = KeyCode(char = "]")
 kill_key = KeyCode(char = "k")
+
+print(f"Click delay is set to {delay} seconds")
+print(f"Press {start_stop_key} to start/stop\nPress {kill_key} to kill the script\n")
 
 class ClickMouse(threading.Thread):
     def __init__(self, delay, button):
