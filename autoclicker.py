@@ -1,7 +1,9 @@
 ### =!= WORK IN PROGRESS =!= ###
 # TODO: see if you can get listener inside run function
-# TODO: add argument to set delay in command line
+# TODO: add CLI tools like flags for delay/key/etc.
 # TODO: move formatting from bash script to here on process killed
+# TODO: create executable version
+# TODO: dockerize environment and create package
 
 import time
 import threading

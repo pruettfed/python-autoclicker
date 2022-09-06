@@ -1,5 +1,8 @@
 #!/usr/bin/zsh
 
+### Use this script to run in the terminal ###
+### if you're using a virtual environment ###
+
 DIR=$(dirname "$0")
 # echo "$DIR" --> returns ~/.../.../Autoclicker
 
@@ -8,5 +11,4 @@ source $DIR/.venv/bin/activate
 python3 $DIR/autoclicker.py
 
 #on autoclicker being killed deactivate venv
-echo -e "\b\e[3;35mPROCESS FINISHED"
 deactivate
