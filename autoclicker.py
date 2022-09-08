@@ -1,5 +1,5 @@
 ### =!= WORK IN PROGRESS =!= ###
-# TODO: see if you can get listener inside run function
+# TODO: add debug mode
 # TODO: add CLI tools like flags for delay/key/etc.
 # TODO: move formatting from bash script to here on process killed
 # TODO: create executable version
@@ -23,11 +23,16 @@ kill_key = KeyCode(char = "k")
 ### |> MAIN FUNCTION <| ###
 def run():
     print(f"Click delay is set to {delay} seconds")
-    print(f"Press {toggle_key} to start/stop\nPress {kill_key} to kill the program\n")
+    print(f"Press {toggle_key.char} to start/stop\nPress {kill_key.char} to kill the program\n")
 
-    #create new thread targeting main clicking function
+    #create new thread executing main clicking function
     click_thread = threading.Thread(target = clicker)
     click_thread.start()
+
+    #listen for clicking events
+    global listener
+    with Listener(on_press = toggle_clicking) as listener:
+        listener.join()
 
 
 def clicker():
@@ -35,6 +40,7 @@ def clicker():
         while clicking:
             mouse.click(Button.left, 1)
             time.sleep(delay)
+        time.sleep(0.001) #allow listener to grab keys
 
 #event triggered by listener
 def toggle_clicking(key):
@@ -51,7 +57,3 @@ def toggle_clicking(key):
 
 if __name__ == "__main__":
     run()
-
-#listen for clicking events 
-with Listener(on_press = toggle_clicking) as listener:
-    listener.join()
