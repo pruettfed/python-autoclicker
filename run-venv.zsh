@@ -5,11 +5,11 @@
 
 ### =>> MAC SYSTEMS <<= ###
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    DIR="$(dirname $0)"
     
     #activate venv
-    source $DIR/.venv/bin/activate
-    python3 $DIR/autoclicker.py
+    source "$DIR"/.venv/bin/activate
+    python3 "$DIR"/autoclicker.py
 ### =>> MAC SYSTEMS <<= ###
 
 ### =>> WINDOWS SYSTEMS <<= ###
