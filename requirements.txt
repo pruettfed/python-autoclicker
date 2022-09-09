@@ -1,2 +1,3 @@
-pynput==1.7.6
-six==1.16.0
+# DO NOT EDIT
+pyinstaller
+pynput

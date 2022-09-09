@@ -1,9 +1,6 @@
 ### =!= WORK IN PROGRESS =!= ###
 # TODO: add debug mode
-# TODO: add CLI tools like flags for delay/key/etc.
-# TODO: move formatting from bash script to here on process killed
-# TODO: create executable version
-# TODO: dockerize environment and create package
+# TODO: make GUI
 
 import time
 import threading
@@ -20,7 +17,7 @@ delay = 0.01
 toggle_key = KeyCode(char = "p")
 kill_key = KeyCode(char = "k")
 
-### |> MAIN FUNCTION <| ###
+### |||> MAIN FUNCTION <||| ###
 def run():
     print(f"Click delay is set to {delay} seconds")
     print(f"Press {toggle_key.char} to start/stop\nPress {kill_key.char} to kill the program\n")
@@ -29,12 +26,13 @@ def run():
     click_thread = threading.Thread(target = clicker)
     click_thread.start()
 
-    #listen for clicking events
+    #listen for clicking events and trigger keystroke events
     global listener
     with Listener(on_press = toggle_clicking) as listener:
         listener.join()
 
 
+### |||> AUTOCLICKER <||| ###
 def clicker():
     while program_running:
         while clicking:
@@ -42,7 +40,7 @@ def clicker():
             time.sleep(delay)
         time.sleep(0.001) #allow listener to grab keys
 
-#event triggered by listener
+### |||> KEYSTROKE EVENTS <||| ###
 def toggle_clicking(key):
     global clicking
     global program_running
@@ -54,6 +52,7 @@ def toggle_clicking(key):
         clicking = False
         program_running = False
         listener.stop()
+
 
 if __name__ == "__main__":
     run()
