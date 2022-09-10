@@ -11,6 +11,7 @@ from pynput.keyboard import Listener, KeyCode
 clicking = False
 program_running = True
 mouse = Controller()
+version = "1.3"
 
 ### =>> USER VARIABLES <<= ###
 delay = 0.01
@@ -19,6 +20,7 @@ kill_key = KeyCode(char = "k")
 
 ### |||> MAIN FUNCTION <||| ###
 def run():
+    print(f"\033[32;1m - Running v{version} of autoclicker - \033[0m\n")
     print(f"Click delay is set to {delay} seconds")
     print(f"Press {toggle_key.char} to start/stop\nPress {kill_key.char} to kill the program\n")
 
@@ -52,6 +54,7 @@ def toggle_clicking(key):
         clicking = False
         program_running = False
         listener.stop()
+        print("\033[31;1;51m ~ AUTOCLICKER KILLED ~ \033[0m")
 
 
 if __name__ == "__main__":

@@ -1,10 +1,16 @@
 #!/usr/bin/zsh
 
 ### </> BUILD SCRIPT </> ###
+
 ### Use this script to build an executable version of the autoclicker
 ### Make sure to run inside root folder
+## Run with $ source build.zsh
+
+### </> VERSION NUMBER </> ###
+VERSION="1.2"
 
 #create virtual environment
+print $fg_bold[blue] "Build initiated for v${VERSION}\n ================================================================="
 print $fg_bold[blue] 'Creating build environment\n ================================================================='
 
 ### =>> MAC SYSTEMS <<= ###
@@ -40,4 +46,4 @@ rm -r build
 rm -r dist
 rm autoclicker.spec
 
-print $fg_bold[green] 'Process completed'
+print $fg_bold[green] "Process completed: Autoclicker version ${VERSION} installed"
