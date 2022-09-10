@@ -11,7 +11,7 @@ from pynput.keyboard import Listener, KeyCode
 clicking = False
 program_running = True
 mouse = Controller()
-version = "1.3"
+version = "1.3.1"
 
 ### =>> USER VARIABLES <<= ###
 delay = 0.01

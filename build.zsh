@@ -7,10 +7,10 @@
 ## Run with $ source build.zsh
 
 ### </> VERSION NUMBER </> ###
-VERSION="1.2"
+VERSION="1.3.1"
 
 #create virtual environment
-print $fg_bold[blue] "Build initiated for v${VERSION}\n ================================================================="
+print $fg_bold[green] "Build initiated for v${VERSION}\n ================================================================= \n"
 print $fg_bold[blue] 'Creating build environment\n ================================================================='
 
 ### =>> MAC SYSTEMS <<= ###
@@ -33,17 +33,17 @@ print $fg_bold[blue] 'Installing packages\n ====================================
 #install pyinstaller and create executable
 pip install -q -r requirements.txt
 print $fg_bold[magenta] 'Building executable\n ================================================================='
-pyinstaller --onefile autoclicker.py
+pyinstaller --onefile autoclicker.py --name="autoclicker_${VERSION}"
 
 #delete virtual environment
 deactivate
 rm -r .buildvenv
 
-print $fg[yellow] 'Cleaning stuff up\n ================================================================='
+print $fg[yellow] 'Cleaning stuff up\n ================================================================= \n'
 #cp executable and delete build files
-cp dist/autoclicker .
+cp "dist/autoclicker_${VERSION}" .
 rm -r build
 rm -r dist
-rm autoclicker.spec
+rm "autoclicker_${VERSION}.spec"
 
 print $fg_bold[green] "Process completed: Autoclicker version ${VERSION} installed"
