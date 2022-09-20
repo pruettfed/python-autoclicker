@@ -41,4 +41,4 @@ Installation
 1. Clone this repository using `git clone`
 2. Install the required packages using `pip install -r requirements.txt`
 3. run `autoclicker.py`
-> If you're using a virtual environment and your packages are installed there, use the `run-venv.zsh` script to activate and deactive the script automatically.
+> If you're using a virtual environment and your packages are installed there, make sure to activate the environment before running the script.
