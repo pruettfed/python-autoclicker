@@ -1,7 +1,4 @@
-### =!= WORK IN PROGRESS =!= ###
-# TODO: add debug mode
-# TODO: make GUI
-
+### =!= PRUETT.FED =!= ###
 import time
 import threading
 from pynput.mouse import Button, Controller
@@ -11,7 +8,7 @@ from pynput.keyboard import Listener, KeyCode
 clicking = False
 program_running = True
 mouse = Controller()
-version = "1.3.1"
+version = "1.3.2"
 
 ### =>> USER VARIABLES <<= ###
 delay = 0.01

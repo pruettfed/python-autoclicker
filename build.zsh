@@ -7,7 +7,7 @@
 ## Run with $ source build.zsh
 
 ### </> VERSION NUMBER </> ###
-VERSION="1.3.1"
+VERSION="1.3.2"
 
 #create virtual environment
 print $fg_bold[green] "Build initiated for v${VERSION}\n ================================================================= \n"
